@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useCallback } from 'react'
+import { Link } from 'react-router-dom'
 
 import { HeaderBar } from './styles'
 
 function Header() {
+	const handleAlterStore = useCallback(() => {
+		console.log('Click muda loja')
+	}, [])
+
 	return (
 		<HeaderBar>
 			<div className="container">
@@ -10,7 +15,7 @@ function Header() {
 					<i className="icon">
 						<span></span>
 					</i>
-					<h1>Poke Store</h1>
+					<h1>PokeStore</h1>
 				</div>
 
 				<div className="nav-tools">
@@ -23,16 +28,16 @@ function Header() {
 						<span href="#">
 							Nossas Lojas
 							<div className="stores">
-								<a href="/">
+								<Link to="/store/water" onClick={handleAlterStore}>
 									<i className="icon icon-water">
-										<span>Água</span>
+										<span>Water</span>
 									</i>
-								</a>
-								<a href="/">
+								</Link>
+								<Link to="/store/fire" onClick={handleAlterStore}>
 									<i className="icon icon-fire">
-										<span>Fogo</span>
+										<span>Fire</span>
 									</i>
-								</a>
+								</Link>
 							</div>
 						</span>
 					</div>

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 // components
 import Header from '../../components/Header'
@@ -9,22 +9,32 @@ import Cart from '../../components/Cart'
 
 // redux
 import { identifyTheme } from '../../store/reducers/theme'
+import { getAllPokemonFetch } from '../../store/fetchActions/pokemon'
 
 // styles
 import { ContainerStore } from './styles'
 
 function Store(props) {
+	const theme = props.match.params.type
+	const loading = useSelector((state) => state.loading.show)
+
 	const dispatch = useDispatch()
 
-	const theme = props.match.params.type
-	dispatch(identifyTheme(theme))
+	useEffect(() => {
+		dispatch(identifyTheme(theme))
+		dispatch(getAllPokemonFetch(theme))
+	}, [dispatch, theme])
 
 	return (
 		<>
 			<Header />
 			<ContainerStore className="container">
-				<Catalog />
-				<Cart />
+				{!loading && (
+					<>
+						<Catalog />
+						<Cart />
+					</>
+				)}
 			</ContainerStore>
 		</>
 	)

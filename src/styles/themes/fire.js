@@ -2,7 +2,7 @@ export default {
 	title: 'fire',
 
 	colors: {
-		primary: '#EE1B24',
+		primary: '#B92025',
 		secundary: '#F04951',
 	},
 

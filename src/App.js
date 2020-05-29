@@ -1,24 +1,20 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { ThemeProvider } from 'styled-components'
 import { useSelector } from 'react-redux'
 
-// Themes
-import water from './styles/themes/water'
-import fire from './styles/themes/fire'
+import Loading from './components/Loading'
 
 import GlobalStyle from './styles/global'
 import Routes from './routes'
 
 function App() {
-	// const [theme, setTheme] = useState(water)
-	// useEffect(() => {
-	// 	setTheme(fire)
-	// }, [])
-
 	const theme = useSelector((state) => state.theme.themeObject)
+	const loading = useSelector((state) => state.loading.show)
 
 	return (
 		<ThemeProvider theme={theme}>
+			{loading && <Loading />}
+
 			<GlobalStyle />
 			<Routes />
 		</ThemeProvider>

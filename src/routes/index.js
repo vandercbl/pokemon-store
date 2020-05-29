@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect } from 'react'
+import React from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import Home from '../pages/Home'
@@ -10,7 +10,7 @@ export default function Routes() {
 		<BrowserRouter>
 			<Switch>
 				<Route exact path="/" component={Home}></Route>
-				<Route path="/loja/:type" component={Store}></Route>
+				<Route path="/store/:type" component={Store}></Route>
 			</Switch>
 		</BrowserRouter>
 	)

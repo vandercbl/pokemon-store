@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 import { ContainerHome } from './styles'
 
@@ -7,14 +8,19 @@ function Home() {
 		<>
 			<ContainerHome>
 				<div className="container">
-					<h1>Home</h1>
+					<h1>Grupo Pokémon Stores</h1>
+					<p>
+						Utilize nosso Marketplace que é especializado e categorizado por
+						tipos diferentes de Pokémon.
+					</p>
+					<p>Acesse nossas lojas abaixo e veja todas suas possibilidades</p>
 					<div className="links-stores">
-						<a href="/" className="fire" title="Fire">
+						<Link to="/store/fire" className="fire" title="Fire">
 							<i className="bg-store"></i>
-						</a>
-						<a href="/" className="water" title="Water">
+						</Link>
+						<Link to="/store/water" className="water" title="Water">
 							<i className="bg-store"></i>
-						</a>
+						</Link>
 					</div>
 				</div>
 			</ContainerHome>

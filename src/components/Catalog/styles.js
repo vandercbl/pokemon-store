@@ -18,16 +18,27 @@ export const Content = styled.div`
 		justify-content: center;
 		background: #fff;
 		border-radius: 8px;
+		transition: all 0.3s;
+
+		&:hover {
+			box-shadow: 0px 0px 5px 1px ${(props) => props.theme.colors.secundary};
+
+			img {
+				transform: scale(1.2);
+			}
+		}
 
 		img {
-			width: 90px;
+			max-width: 100%;
 			margin: 16px auto 16px auto;
+			transition: all 0.3s;
 		}
 
 		.name {
 			font-weight: 500;
 			color: #333;
 			margin: 0 16px;
+			text-transform: capitalize;
 		}
 
 		.price {

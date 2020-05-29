@@ -1,61 +1,26 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
-import testePokemon from '../../assets/teste-pokemon.png'
+import formatValue from '../../utils/formatValue'
 
 import { Content } from './styles'
 
 function Catalog() {
+	const pokemon = useSelector((state) => state.pokemon)
+
 	return (
 		<Content>
 			<ul>
-				<li>
-					<img src={testePokemon} alt="Nome do Pokemon" />
-					<p className="name">Nome do Pokemon</p>
-					<p className="price">R$ 45,60</p>
-					<button>Comprar</button>
-				</li>
-				<li>
-					<img src={testePokemon} alt="Nome do Pokemon" />
-					<p className="name">Nome do Pokemon</p>
-					<p className="price">R$ 45,60</p>
-					<button>Comprar</button>
-				</li>
-				<li>
-					<img src={testePokemon} alt="Nome do Pokemon" />
-					<p className="name">Nome do Pokemon</p>
-					<p className="price">R$ 45,60</p>
-					<button>Comprar</button>
-				</li>
-				<li>
-					<img src={testePokemon} alt="Nome do Pokemon" />
-					<p className="name">Nome do Pokemon</p>
-					<p className="price">R$ 45,60</p>
-					<button>Comprar</button>
-				</li>
-				<li>
-					<img src={testePokemon} alt="Nome do Pokemon" />
-					<p className="name">Nome do Pokemon</p>
-					<p className="price">R$ 45,60</p>
-					<button>Comprar</button>
-				</li>
-				<li>
-					<img src={testePokemon} alt="Nome do Pokemon" />
-					<p className="name">Nome do Pokemon</p>
-					<p className="price">R$ 45,60</p>
-					<button>Comprar</button>
-				</li>
-				<li>
-					<img src={testePokemon} alt="Nome do Pokemon" />
-					<p className="name">Nome do Pokemon</p>
-					<p className="price">R$ 45,60</p>
-					<button>Comprar</button>
-				</li>
-				<li>
-					<img src={testePokemon} alt="Nome do Pokemon" />
-					<p className="name">Nome do Pokemon</p>
-					<p className="price">R$ 45,60</p>
-					<button>Comprar</button>
-				</li>
+				{pokemon.list.map((p, index) => (
+					<li key={index}>
+						<img src={p.pokemon.urlImage} alt={p.pokemon.name} />
+						<p className="name">{p.pokemon.name}</p>
+						<p className="price">
+							{formatValue(Number(p.pokemon.name.length * 3))}
+						</p>
+						<button>Comprar</button>
+					</li>
+				))}
 			</ul>
 		</Content>
 	)

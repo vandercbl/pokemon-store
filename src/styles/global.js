@@ -37,6 +37,7 @@ export default createGlobalStyle`
 		padding: 16px;
 		margin: 0 auto;
 		display: flex;
+		width: 100%;
 		position: relative;
 	}
 `

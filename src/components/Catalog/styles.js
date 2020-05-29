@@ -1,8 +1,21 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Content = styled.div`
 	border: 1px solid green;
 	width: 100%;
+	display: none;
+	padding-bottom: 100px;
+
+	${(props) =>
+		props.show &&
+		css`
+			display: block;
+		`}
+
+	@media (min-width: 768px) {
+		display: block;
+		padding-bottom: 0;
+	}
 
 	ul {
 		display: grid;

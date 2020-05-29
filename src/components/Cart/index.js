@@ -1,12 +1,15 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 import { CartSummary, CartDetails, CartConclude } from './styles'
 
 import testePokemon from '../../assets/teste-pokemon.png'
 
 function Cart() {
+	const cartShow = useSelector((state) => state.screen.cartShow)
+
 	return (
-		<CartSummary>
+		<CartSummary show={cartShow}>
 			<h2>Carrinho</h2>
 			<CartDetails>
 				<ul>

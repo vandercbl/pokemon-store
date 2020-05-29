@@ -7,4 +7,8 @@ export const ContainerStore = styled.div`
 	@media (min-width: 768px) {
 		background: #d8d3d8;
 	}
+
+	&.store {
+		padding-top: 90px;
+	}
 `

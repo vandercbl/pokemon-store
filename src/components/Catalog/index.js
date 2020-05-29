@@ -7,9 +7,10 @@ import { Content } from './styles'
 
 function Catalog() {
 	const pokemon = useSelector((state) => state.pokemon)
+	const catalogShow = useSelector((state) => state.screen.catalogShow)
 
 	return (
-		<Content>
+		<Content show={catalogShow}>
 			<ul>
 				{pokemon.list.map((p, index) => (
 					<li key={index}>

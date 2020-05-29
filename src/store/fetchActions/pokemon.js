@@ -3,7 +3,6 @@ import { listPokemon } from '../reducers/pokemon'
 import { startLoad, endLoad } from '../reducers/loading'
 
 export const getAllPokemonFetch = (type) => async (dispatch) => {
-	console.log('inicio')
 	dispatch(startLoad())
 
 	const objectPoke = await api
@@ -48,6 +47,5 @@ export const getAllPokemonFetch = (type) => async (dispatch) => {
 		dispatch(listPokemon(values))
 	})
 
-	console.log('fim')
 	dispatch(endLoad())
 }

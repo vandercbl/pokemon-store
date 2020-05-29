@@ -14,6 +14,16 @@ export default createGlobalStyle`
 		-webkit-font-smoothing: antialiased;
 	}
 
+	body, #root {
+		display: flex;
+		flex-direction: column;
+		height: 100vh;
+	}
+
+	footer {
+		margin-top: auto;
+	}
+
 	body, input, button {
 		font-family: 'Roboto', sans-serif;
 		font-size: 16px;

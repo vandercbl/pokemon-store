@@ -1,10 +1,16 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const CartSummary = styled.div`
 	border: 1px solid blue;
 	min-width: 300px;
 
 	display: none;
+
+	${(props) =>
+		props.show &&
+		css`
+			display: block;
+		`}
 
 	@media (min-width: 768px) {
 		display: block;

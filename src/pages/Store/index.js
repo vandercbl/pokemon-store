@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 
 // components
 import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 import Catalog from '../../components/Catalog'
 import Cart from '../../components/Cart'
 
@@ -28,7 +29,7 @@ function Store(props) {
 	return (
 		<>
 			<Header />
-			<ContainerStore className="container">
+			<ContainerStore className="container store">
 				{!loading && (
 					<>
 						<Catalog />
@@ -36,6 +37,7 @@ function Store(props) {
 					</>
 				)}
 			</ContainerStore>
+			<Footer />
 		</>
 	)
 }

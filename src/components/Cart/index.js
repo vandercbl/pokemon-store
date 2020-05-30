@@ -16,8 +16,10 @@ function TotalCart({ cart }) {
 }
 
 function Cart() {
+	const type = useSelector((state) => state.theme.themeObject.title)
 	const cartShow = useSelector((state) => state.screen.cartShow)
-	const cart = useSelector((state) => state.cart.cartItems)
+	const cart = useSelector((state) => state.cart.typeStore[type])
+	// const cart = useSelector((state) => state.cart.cartItems)
 	const dispatch = useDispatch()
 
 	// const totalCart = useMemo(() => {
@@ -36,15 +38,15 @@ function Cart() {
 	// }, [totalCart])
 
 	const handleAddUnit = useCallback(
-		(name) => {
-			dispatch(addQuantity(name))
+		(item) => {
+			dispatch(addQuantity(item))
 		},
 		[dispatch],
 	)
 
 	const handleRemoveUnit = useCallback(
-		(name) => {
-			dispatch(removeQuantity(name))
+		(item) => {
+			dispatch(removeQuantity(item))
 		},
 		[dispatch],
 	)
@@ -61,9 +63,9 @@ function Cart() {
 								<span>{item.name}</span>
 							</div>
 							<div className="quantity">
-								<button onClick={() => handleRemoveUnit(item.name)}>-</button>
+								<button onClick={() => handleRemoveUnit(item)}>-</button>
 								<span>{item.quantity}</span>
-								<button onClick={() => handleAddUnit(item.name)}>+</button>
+								<button onClick={() => handleAddUnit(item)}>+</button>
 							</div>
 							<div className="price">
 								<span className="currency">R$</span>

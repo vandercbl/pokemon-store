@@ -19,30 +19,20 @@ import { ContainerStore } from './styles'
 function Store(props) {
 	const theme = props.match.params.type
 	const loading = useSelector((state) => state.loading.show)
-	const cart = useSelector((state) => state.cart)
+	const cart = useSelector((state) => state.cart.typeStore[theme])
 
 	const dispatch = useDispatch()
 
 	useEffect(() => {
 		const cartStorage = localStorage.getItem(`@LojaPokemon:${theme}`)
 		if (cartStorage) {
-			dispatch(getLocalStorage(JSON.parse(cartStorage)))
+			dispatch(getLocalStorage(JSON.parse(cartStorage).concat()))
 		}
 	}, [dispatch, theme])
 
 	useEffect(() => {
-		localStorage.setItem(
-			`@LojaPokemon:${theme}`,
-			JSON.stringify(cart.cartItems),
-		)
+		localStorage.setItem(`@LojaPokemon:${theme}`, JSON.stringify(cart))
 	}, [cart, theme])
-
-	// useEffect(() => {
-	// 	localStorage.setItem(
-	// 		`@LokaPokemon:${theme}`,
-	// 		JSON.stringify(cart.cartItems),
-	// 	)
-	// }, [cart, theme])
 
 	useEffect(() => {
 		dispatch(identifyTheme(theme))

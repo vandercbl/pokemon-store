@@ -10,6 +10,10 @@ import { createAction, createReducer } from '@reduxjs/toolkit'
 const INITIAL_STATE = {
 	cartItems: [],
 	type: '',
+	typeStore: {
+		water: [],
+		fire: [],
+	},
 }
 
 export const getLocalStorage = createAction('GET_LOCAL_STORAGE')
@@ -21,37 +25,44 @@ export const finishBuy = createAction('FINISH_BUY')
 
 export default createReducer(INITIAL_STATE, {
 	[addItemCart]: (state, action) => {
-		const exists = state.cartItems.findIndex(
+		const type = action.payload.type
+
+		const exists = state.typeStore[type].findIndex(
 			(item) => item.name === action.payload.name,
 		)
 
-		// se não existe ainda
 		if (exists === -1) {
-			state.cartItems = [...state.cartItems, action.payload]
+			state.typeStore[type] = [...state.typeStore[type], action.payload]
 		} else {
-			state.cartItems[exists].quantity = state.cartItems[exists].quantity + 1
+			state.typeStore[type][exists].quantity =
+				state.typeStore[type][exists].quantity + 1
 		}
+
+		// state.typeStore = [{ [type]: { itemCart: action.payload } }]
 	},
 	[removeItemCart]: (state, action) => {
 		console.log(2)
 	},
 	[addQuantity]: (state, action) => {
-		const indexPokemon = state.cartItems.findIndex(
-			(item) => item.name === action.payload,
+		const type = action.payload.type
+		const indexPokemon = state.typeStore[type].findIndex(
+			(item) => item.name === action.payload.name,
 		)
-		state.cartItems[indexPokemon].quantity =
-			state.cartItems[indexPokemon].quantity + 1
+		state.typeStore[type][indexPokemon].quantity =
+			state.typeStore[type][indexPokemon].quantity + 1
 	},
 	[removeQuantity]: (state, action) => {
-		const indexPokemon = state.cartItems.findIndex(
-			(item) => item.name === action.payload,
+		const type = action.payload.type
+
+		const indexPokemon = state.typeStore[type].findIndex(
+			(item) => item.name === action.payload.name,
 		)
 
-		state.cartItems[indexPokemon].quantity =
-			state.cartItems[indexPokemon].quantity - 1
+		state.typeStore[type][indexPokemon].quantity =
+			state.typeStore[type][indexPokemon].quantity - 1
 
-		if (state.cartItems[indexPokemon].quantity < 1) {
-			state.cartItems = state.cartItems.filter(
+		if (state.typeStore[type][indexPokemon].quantity < 1) {
+			state.typeStore[type] = state.typeStore[type].filter(
 				(item, index) => index !== indexPokemon,
 			)
 		}
@@ -60,7 +71,12 @@ export default createReducer(INITIAL_STATE, {
 		console.log(5)
 	},
 	[getLocalStorage]: (state, action) => {
-		console.log('entrou')
-		state.cartItems = action.payload
+		if (typeof action.payload[0] !== 'undefined') {
+			const type = action.payload[0].type
+
+			if (type) {
+				state.typeStore[type] = action.payload
+			}
+		}
 	},
 })

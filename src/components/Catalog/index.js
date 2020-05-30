@@ -13,9 +13,9 @@ function Catalog() {
 
 	const dispatch = useDispatch()
 
-	function handleAddCart({ name, urlImage, price }) {
+	function handleAddCart({ name, urlImage, price, type }) {
 		const quantity = 1
-		const item = { name, urlImage, price, quantity }
+		const item = { name, urlImage, price, quantity, type }
 		dispatch(addItemCart(item))
 	}
 

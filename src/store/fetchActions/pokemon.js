@@ -19,6 +19,7 @@ export const getAllPokemonFetch = (type) => async (dispatch) => {
 						price: p.pokemon.name.length * 3,
 						url: p.pokemon.url,
 						newUrl: newUrl,
+						type: type,
 					},
 				}
 				return p
@@ -40,6 +41,7 @@ export const getAllPokemonFetch = (type) => async (dispatch) => {
 				url: p.pokemon.url,
 				newUrl: p.pokemon.newUrl,
 				urlImage: urlImage,
+				type: type,
 			},
 		}
 		return p

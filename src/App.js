@@ -10,12 +10,13 @@ import Routes from './routes'
 function App() {
 	const theme = useSelector((state) => state.theme.themeObject)
 	const loading = useSelector((state) => state.loading.show)
+	const modalShow = useSelector((state) => state.modal.show)
 
 	return (
 		<ThemeProvider theme={theme}>
 			{loading && <Loading />}
 
-			<GlobalStyle />
+			<GlobalStyle modal={modalShow} />
 			<Routes />
 		</ThemeProvider>
 	)

@@ -2,7 +2,7 @@ import styled, { keyframes } from 'styled-components'
 
 import typesStores from '../../assets/home-types-store.jpg'
 
-const appeatFromBottom = keyframes`
+const appearFromBottom = keyframes`
 	from{
 		opacity: 0;
 		transform: translateY(50px);
@@ -42,7 +42,7 @@ export const ContainerHome = styled.div`
 		grid-template-columns: repeat(auto-fit, minmax(110px, 110px));
 		grid-gap: 24px;
 		justify-content: center;
-		animation: ${appeatFromBottom} 1s;
+		animation: ${appearFromBottom} 1s;
 
 		a {
 			overflow: hidden;

@@ -18,7 +18,6 @@ const INITIAL_STATE = {
 
 export const getLocalStorage = createAction('GET_LOCAL_STORAGE')
 export const addItemCart = createAction('ADD_ITEM_CART')
-export const removeItemCart = createAction('REMOVE_ITEM_CART')
 export const addQuantity = createAction('ADD_QUANTITY')
 export const removeQuantity = createAction('REMOVE_QUANTITY')
 export const finishBuy = createAction('FINISH_BUY')
@@ -39,9 +38,6 @@ export default createReducer(INITIAL_STATE, {
 		}
 
 		// state.typeStore = [{ [type]: { itemCart: action.payload } }]
-	},
-	[removeItemCart]: (state, action) => {
-		console.log(2)
 	},
 	[addQuantity]: (state, action) => {
 		const type = action.payload.type
@@ -68,7 +64,9 @@ export default createReducer(INITIAL_STATE, {
 		}
 	},
 	[finishBuy]: (state, action) => {
-		console.log(5)
+		const type = action.payload
+		state.typeStore[type] = []
+		localStorage.removeItem(`@LojaPokemon:${type}`)
 	},
 	[getLocalStorage]: (state, action) => {
 		if (typeof action.payload[0] !== 'undefined') {

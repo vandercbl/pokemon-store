@@ -13,11 +13,14 @@ function Catalog() {
 
 	const dispatch = useDispatch()
 
-	function handleAddCart({ name, urlImage, price, type }) {
-		const quantity = 1
-		const item = { name, urlImage, price, quantity, type }
-		dispatch(addItemCart(item))
-	}
+	const handleAddCart = useCallback(
+		({ name, urlImage, price, type }) => {
+			const quantity = 1
+			const item = { name, urlImage, price, quantity, type }
+			dispatch(addItemCart(item))
+		},
+		[dispatch],
+	)
 
 	return (
 		<Content show={catalogShow}>

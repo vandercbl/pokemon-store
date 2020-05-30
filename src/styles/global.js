@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle, css } from 'styled-components'
 
 export default createGlobalStyle`
 	*{
@@ -12,6 +12,12 @@ export default createGlobalStyle`
 		background: #fff;
 		color: #66625c;
 		-webkit-font-smoothing: antialiased;
+
+		${(props) =>
+			props.modal &&
+			css`
+				overflow: hidden;
+			`}
 	}
 
 	body, #root {

@@ -18,8 +18,18 @@ import { ContainerStore } from './styles'
 function Store(props) {
 	const theme = props.match.params.type
 	const loading = useSelector((state) => state.loading.show)
+	const cart = useSelector((state) => state.cart)
+
+	console.log(cart)
 
 	const dispatch = useDispatch()
+
+	useEffect(() => {
+		localStorage.setItem(
+			`@LokaPokemon:${theme}`,
+			JSON.stringify(cart.cartItems),
+		)
+	}, [cart, theme])
 
 	useEffect(() => {
 		dispatch(identifyTheme(theme))

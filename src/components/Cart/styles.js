@@ -37,18 +37,24 @@ export const CartDetails = styled.div`
 	}
 
 	.name-item {
-		max-width: 70px;
+		max-width: 80px;
 		text-align: center;
+		border: 1px solid #ccc;
+		background: #eee;
+		padding: 5px;
 
 		img {
-			max-width: 40px;
+			max-width: 100%;
 			display: block;
 			margin: 0 auto;
+			background: #fff;
 		}
 
 		span {
 			font-size: 0.8rem;
 			display: block;
+			margin-top: 6px;
+			text-transform: capitalize;
 		}
 	}
 
@@ -84,6 +90,8 @@ export const CartDetails = styled.div`
 	}
 
 	.price {
+		min-width: 70px;
+
 		.currency {
 			font-weight: 500;
 			font-size: 0.7rem;

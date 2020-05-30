@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 // components
@@ -10,6 +10,7 @@ import Cart from '../../components/Cart'
 
 // redux
 import { identifyTheme } from '../../store/reducers/theme'
+import { getLocalStorage } from '../../store/reducers/cart'
 import { getAllPokemonFetch } from '../../store/fetchActions/pokemon'
 
 // styles
@@ -20,16 +21,28 @@ function Store(props) {
 	const loading = useSelector((state) => state.loading.show)
 	const cart = useSelector((state) => state.cart)
 
-	console.log(cart)
-
 	const dispatch = useDispatch()
 
 	useEffect(() => {
+		const cartStorage = localStorage.getItem(`@LojaPokemon:${theme}`)
+		if (cartStorage) {
+			dispatch(getLocalStorage(JSON.parse(cartStorage)))
+		}
+	}, [dispatch, theme])
+
+	useEffect(() => {
 		localStorage.setItem(
-			`@LokaPokemon:${theme}`,
+			`@LojaPokemon:${theme}`,
 			JSON.stringify(cart.cartItems),
 		)
 	}, [cart, theme])
+
+	// useEffect(() => {
+	// 	localStorage.setItem(
+	// 		`@LokaPokemon:${theme}`,
+	// 		JSON.stringify(cart.cartItems),
+	// 	)
+	// }, [cart, theme])
 
 	useEffect(() => {
 		dispatch(identifyTheme(theme))

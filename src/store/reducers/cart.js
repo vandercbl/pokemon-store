@@ -12,6 +12,7 @@ const INITIAL_STATE = {
 	type: '',
 }
 
+export const getLocalStorage = createAction('GET_LOCAL_STORAGE')
 export const addItemCart = createAction('ADD_ITEM_CART')
 export const removeItemCart = createAction('REMOVE_ITEM_CART')
 export const addQuantity = createAction('ADD_QUANTITY')
@@ -57,5 +58,9 @@ export default createReducer(INITIAL_STATE, {
 	},
 	[finishBuy]: (state, action) => {
 		console.log(5)
+	},
+	[getLocalStorage]: (state, action) => {
+		console.log('entrou')
+		state.cartItems = action.payload
 	},
 })

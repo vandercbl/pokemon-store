@@ -15,6 +15,8 @@ export const Content = styled.div`
 	}
 
 	ul {
+		/* IE */
+		display: block;
 		display: grid;
 		grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
 		grid-gap: 16px;
@@ -26,6 +28,8 @@ export const Content = styled.div`
 
 	li {
 		list-style: none;
+		/* IE */
+		display: inline-block;
 		display: grid;
 		box-shadow: 0px 0px 4px 1px #eee;
 		grid-template-columns: 1fr;

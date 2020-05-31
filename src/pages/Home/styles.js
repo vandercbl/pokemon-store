@@ -13,10 +13,8 @@ const appearFromBottom = keyframes`
 `
 
 export const ContainerHome = styled.div`
-	/* background-image: radial-gradient(circle, #fff, #fff, #ddd); */
 	height: 100vh;
 	display: flex;
-	/* align-items: center; */
 	text-align: center;
 	padding-top: 8vh;
 
@@ -39,10 +37,10 @@ export const ContainerHome = styled.div`
 
 	.links-stores {
 		margin-top: 32px;
-		display: grid;
+		/* display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(110px, 110px));
 		grid-gap: 24px;
-		justify-content: center;
+		justify-content: center;*/
 		animation: ${appearFromBottom} 2s;
 		margin-bottom: 16px;
 
@@ -53,6 +51,9 @@ export const ContainerHome = styled.div`
 			border-radius: 8px;
 			box-shadow: 0px 0px 4px 0px #aaa;
 			transition: all 0.4s;
+
+			display: inline-block;
+			margin: 0 8px 8px 16px;
 
 			.bg-store {
 				background: url(${typesStores}) 0 center no-repeat;

@@ -7,6 +7,7 @@ const INITIAL_STATE = {
 
 export const listPokemon = createAction('LIST_POKEMON')
 export const filterPokemon = createAction('FILTER_LIST_POKEMON')
+export const clearPokemonFilter = createAction('CLEAR_POKEMON_FILTER')
 
 export default createReducer(INITIAL_STATE, {
 	[listPokemon]: (state, action) => {
@@ -14,5 +15,8 @@ export default createReducer(INITIAL_STATE, {
 	},
 	[filterPokemon]: (state, action) => {
 		state.filter = action.payload
+	},
+	[clearPokemonFilter]: (state, action) => {
+		state.filter = ''
 	},
 })

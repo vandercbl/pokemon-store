@@ -1,8 +1,13 @@
 import React, { useCallback } from 'react'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
-import { activeCart, activeCatalog } from '../../store/reducers/screen'
+import {
+	activeCart,
+	activeCatalog,
+	ourStoresTrue,
+	ourStoresFalse,
+} from '../../store/reducers/screen'
 
 import {
 	AiOutlineAppstore,
@@ -11,9 +16,10 @@ import {
 	AiOutlineHome,
 } from 'react-icons/ai'
 
-import { Container, Content } from './styles'
+import { Container, Content, OurStores } from './styles'
 
 function Footer() {
+	const ourStoresShow = useSelector((state) => state.screen.ourStores)
 	const dispatch = useDispatch()
 
 	const handleCart = useCallback(() => {
@@ -23,6 +29,14 @@ function Footer() {
 	const handleCatalog = useCallback(() => {
 		dispatch(activeCatalog())
 	}, [dispatch])
+
+	const handleOurStores = useCallback(() => {
+		if (ourStoresShow) {
+			dispatch(ourStoresFalse())
+		} else {
+			dispatch(ourStoresTrue())
+		}
+	}, [dispatch, ourStoresShow])
 
 	return (
 		<Container>
@@ -41,7 +55,7 @@ function Footer() {
 							<AiOutlineShoppingCart />
 							<span>Carrinho</span>
 						</div>
-						<div className="our-stores">
+						<OurStores onClick={handleOurStores} show={ourStoresShow}>
 							<span className="action">
 								<div className="btn-icon">
 									<AiOutlineAppstore />
@@ -96,7 +110,7 @@ function Footer() {
 									</Link>
 								</div>
 							</span>
-						</div>
+						</OurStores>
 					</div>
 				</div>
 			</Content>

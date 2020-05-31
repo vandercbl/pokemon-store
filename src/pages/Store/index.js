@@ -11,6 +11,7 @@ import Cart from '../../components/Cart'
 // redux
 import { identifyTheme } from '../../store/reducers/theme'
 import { getLocalStorage } from '../../store/reducers/cart'
+import { clearPokemonFilter } from '../../store/reducers/pokemon'
 import { getAllPokemonFetch } from '../../store/fetchActions/pokemon'
 
 // styles
@@ -36,6 +37,7 @@ function Store(props) {
 
 	useEffect(() => {
 		dispatch(identifyTheme(theme))
+		dispatch(clearPokemonFilter())
 		dispatch(getAllPokemonFetch(theme))
 	}, [dispatch, theme])
 

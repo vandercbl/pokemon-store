@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 import iconsTypes from '../../assets/icons-poke-types.png'
 
@@ -55,86 +55,98 @@ export const Content = styled.div`
 			}
 		}
 	}
+`
 
-	.our-stores {
-		.action {
-			display: inline-block;
-			cursor: pointer;
+export const OurStores = styled.div`
+	.action {
+		display: inline-block;
+		cursor: pointer;
 
-			&:hover {
-				.stores {
-					opacity: 1;
-					visibility: visible;
-				}
+		/* &:hover {
+			.stores {
+				opacity: 1;
+				visibility: visible;
 			}
+		} */
+	}
+	.stores {
+		cursor: default;
+		padding: 16px;
+		background: #fff;
+		box-shadow: 0px 0px 10px -1px #ccc;
+		border-radius: 6px;
+		position: absolute;
+		bottom: 70px;
+		right: 10px;
+		left: 10px;
+		z-index: 1;
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.4s;
+
+		${(props) =>
+			props.show &&
+			css`
+				opacity: 1;
+				visibility: visible;
+			`}
+
+		@media (min-width: 768px) {
+			left: auto;
 		}
-		.stores {
-			cursor: default;
-			padding: 16px;
-			background: #fff;
-			box-shadow: 0px 0px 10px -1px #ccc;
-			border-radius: 6px;
-			position: absolute;
-			bottom: 70px;
-			right: 10px;
-			z-index: 1;
-			opacity: 0;
-			visibility: hidden;
-			transition: all 0.4s;
 
-			a {
-				display: inline-block;
-				margin: 0 8px;
-				padding-bottom: 16px;
-				position: relative;
-				text-align: center;
+		a {
+			display: inline-block;
+			margin: 0 8px;
+			padding-bottom: 16px;
+			position: relative;
+			text-align: center;
+		}
+
+		.icon {
+			display: inline-block;
+			width: 32px;
+			height: 32px;
+			background: url(${iconsTypes}) no-repeat;
+			background-size: 200px;
+
+			&.icon-dragon {
+				background-position: -66px -48px;
+			}
+			&.icon-electric {
+				background-position: -33px -48px;
+			}
+			&.icon-fire {
+				background-position: -33px -2px;
+			}
+			&.icon-flying {
+				background-position: -66px -48px;
+			}
+			&.icon-grass {
+				background-position: -66px -2px;
+			}
+			&.icon-ground {
+				background-position: -99px -2px;
+			}
+			&.icon-ice {
+				background-position: 0px -48px;
+			}
+			&.icon-steel {
+				background-position: -170px -2px;
+			}
+			&.icon-water {
+				background-position: 0px -2px;
 			}
 
-			.icon {
-				display: inline-block;
-				width: 32px;
-				height: 32px;
-				background: url(${iconsTypes}) no-repeat;
-				background-size: 200px;
-
-				&.icon-dragon {
-					background-position: -66px -48px;
-				}
-				&.icon-electric {
-					background-position: -33px -48px;
-				}
-				&.icon-fire {
-					background-position: -33px -2px;
-				}
-				&.icon-flying {
-					background-position: -66px -48px;
-				}
-				&.icon-grass {
-					background-position: -66px -2px;
-				}
-				&.icon-ground {
-					background-position: -99px -2px;
-				}
-				&.icon-ice {
-					background-position: 0px -48px;
-				}
-				&.icon-steel {
-					background-position: -170px -2px;
-				}
-				&.icon-water {
-					background-position: 0px -2px;
-				}
-
-				span {
-					font-size: 0.7rem;
-					position: absolute;
-					bottom: 0;
-					left: 0;
-					text-align: center;
-					width: 100%;
-					font-weight: 500;
-					color: #333;
-				}
+			span {
+				font-size: 0.7rem;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				text-align: center;
+				width: 100%;
+				font-weight: 500;
+				color: #333;
 			}
 		}
 	}

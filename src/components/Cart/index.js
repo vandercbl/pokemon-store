@@ -8,6 +8,7 @@ import {
 	finishBuy,
 } from '../../store/reducers/cart'
 import { startModal, endModal } from '../../store/reducers/modal'
+import { clearPokemonFilter } from '../../store/reducers/pokemon'
 
 import Modal from '../../components/Modal'
 
@@ -48,6 +49,7 @@ function Cart() {
 		dispatch(startModal())
 		setTimeout(() => {
 			dispatch(finishBuy(type))
+			dispatch(clearPokemonFilter())
 			dispatch(endModal())
 		}, 5000)
 	}, [dispatch, type])

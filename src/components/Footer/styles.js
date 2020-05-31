@@ -39,6 +39,7 @@ export const Content = styled.div`
 			cursor: pointer;
 			color: #fff;
 			text-decoration: none;
+			position: relative;
 
 			svg {
 				font-size: 34px;
@@ -46,6 +47,15 @@ export const Content = styled.div`
 			}
 			span {
 				font-size: 12px;
+			}
+
+			.total-cart {
+				position: absolute;
+				top: 0px;
+				right: -10px;
+				background: rgba(51, 51, 51, 0.5);
+				padding: 2px 6px;
+				border-radius: 100%;
 			}
 
 			&.xs-only {
@@ -78,7 +88,7 @@ export const OurStores = styled.div`
 		position: absolute;
 		bottom: 70px;
 		right: 10px;
-		left: 10px;
+		margin-left: 10px;
 		z-index: 1;
 		opacity: 0;
 		visibility: hidden;
@@ -92,7 +102,7 @@ export const OurStores = styled.div`
 			`}
 
 		@media (min-width: 768px) {
-			left: auto;
+			margin-left: auto;
 		}
 
 		a {

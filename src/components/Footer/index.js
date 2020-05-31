@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -20,7 +20,18 @@ import { Container, Content, OurStores } from './styles'
 
 function Footer() {
 	const ourStoresShow = useSelector((state) => state.screen.ourStores)
+	const type = useSelector((state) => state.theme.themeObject.title)
+	const cart = useSelector((state) => state.cart.typeStore[type])
 	const dispatch = useDispatch()
+
+	const totalCart = useMemo(() => {
+		let sum = 0
+		const totalArray = cart.map((item) => item.quantity)
+		if (totalArray.length > 0) {
+			sum = totalArray.reduce((total, quantity) => total + quantity)
+		}
+		return sum
+	}, [cart])
 
 	const handleCart = useCallback(() => {
 		dispatch(activeCart())
@@ -53,6 +64,7 @@ function Footer() {
 						</div>
 						<div className="btn-icon xs-only" onClick={handleCart}>
 							<AiOutlineShoppingCart />
+							<div className="total-cart">{totalCart}</div>
 							<span>Carrinho</span>
 						</div>
 						<OurStores onClick={handleOurStores} show={ourStoresShow}>

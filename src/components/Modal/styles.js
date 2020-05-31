@@ -71,7 +71,7 @@ export const Content = styled.div`
 	svg {
 		margin: 0 auto;
 		font-size: 80px;
-		animation: ${animeIcon} 3s;
+		animation: ${animeIcon} 2s;
 		color: #44a963;
 	}
 

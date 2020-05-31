@@ -1,8 +1,11 @@
 import styled, { css } from 'styled-components'
 
 export const CartSummary = styled.div`
-	border: 1px solid blue;
-	min-width: 300px;
+	width: 100%;
+	background: #fff;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0px 0px 4px 1px #eee;
 
 	display: none;
 
@@ -15,14 +18,22 @@ export const CartSummary = styled.div`
 	@media (min-width: 768px) {
 		display: block;
 		margin-left: 16px;
-	}
-
-	h2 {
-		margin: 16px 0 0 16px;
+		width: auto;
+		min-width: 300px;
+		height: fit-content;
 	}
 `
-export const CartDetails = styled.div`
+
+export const CartTitle = styled.div`
 	padding: 16px;
+`
+
+export const CartDetails = styled.div`
+	padding: 16px 0;
+
+	@media (min-width: 768px) {
+		padding: 16px;
+	}
 
 	li {
 		list-style: none;
@@ -39,8 +50,8 @@ export const CartDetails = styled.div`
 	.name-item {
 		max-width: 80px;
 		text-align: center;
-		border: 1px solid #ccc;
-		background: #eee;
+		border: 1px solid #d8d8d8;
+		border-radius: 8px;
 		padding: 5px;
 
 		img {
@@ -128,11 +139,15 @@ export const CartConclude = styled.div`
 
 	.buy {
 		width: 100%;
-		background: ${(props) => props.theme.colors.primary};
+		background: ${(props) => props.theme.colors.secundary};
 		color: #fff;
 		border: 0;
 		padding: 8px 16px;
 		font-weight: 500;
 		font-size: 1.4rem;
+
+		&:hover {
+			background: ${(props) => props.theme.colors.primary};
+		}
 	}
 `

@@ -18,10 +18,11 @@ export const Container = styled.footer`
 export const Content = styled.div`
 	.nav-mobile {
 		display: flex;
-	}
-	@media (min-width: 768px) {
-		.nav-mobile {
-			display: none;
+		width: 100%;
+		justify-content: space-between;
+
+		@media (min-width: 768px) {
+			justify-content: flex-end;
 		}
 	}
 
@@ -36,6 +37,8 @@ export const Content = styled.div`
 			justify-content: center;
 			margin: 0 6px;
 			cursor: pointer;
+			color: #fff;
+			text-decoration: none;
 
 			svg {
 				font-size: 34px;
@@ -43,6 +46,12 @@ export const Content = styled.div`
 			}
 			span {
 				font-size: 12px;
+			}
+
+			&.xs-only {
+				@media (min-width: 768px) {
+					display: none;
+				}
 			}
 		}
 	}
@@ -67,6 +76,7 @@ export const Content = styled.div`
 			border-radius: 6px;
 			position: absolute;
 			bottom: 70px;
+			right: 10px;
 			z-index: 1;
 			opacity: 0;
 			visibility: hidden;

@@ -2,8 +2,8 @@ export default {
 	title: 'water',
 
 	colors: {
-		primary: '#30A8DA',
-		secundary: '#33A7D8',
+		primary: '#1AAFE1',
+		secundary: '#1487B4',
 	},
 
 	iconsPosition: {

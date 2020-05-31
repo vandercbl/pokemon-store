@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import iconsTypes from '../../assets/icons-poke-types.png'
 
 export const HeaderBar = styled.header`
-	background: #f8fafb;
+	background: #fff;
 	position: fixed;
 	top: 0;
 	width: 100%;
@@ -13,6 +13,13 @@ export const HeaderBar = styled.header`
 	> .container {
 		justify-content: space-between;
 		align-items: center;
+		display: block;
+		padding: 8px;
+
+		@media (min-width: 768px) {
+			display: flex;
+			padding: 16px;
+		}
 	}
 
 	.type-store {
@@ -31,17 +38,20 @@ export const HeaderBar = styled.header`
 export const Input = styled.input`
 	border: 0;
 	padding: 8px 16px;
-	width: 105px;
 	transition: all 0.3s;
+	width: 100%;
 
-	&:focus {
-		width: 205px;
+	@media (min-width: 768px) {
+		width: 250px;
+		&:focus {
+			width: 350px;
+		}
 	}
 
 	${(props) =>
 		props.value &&
 		css`
-			width: 205px;
+			width: 350px;
 		`}
 `
 
@@ -51,12 +61,17 @@ export const Search = styled.div`
 	border-radius: 8px;
 	position: relative;
 	overflow: hidden;
+	margin-top: 8px;
+
+	@media (min-width: 768px) {
+		margin-top: 0;
+	}
 
 	svg {
 		position: absolute;
 		top: 0;
 		right: 0;
-		background: ${(props) => props.theme.colors.secundary};
+		background: ${(props) => props.theme.colors.primary};
 		width: 30px;
 		padding: 0 5px;
 		height: 100%;

@@ -42,7 +42,7 @@ export const ContainerHome = styled.div`
 		grid-template-columns: repeat(auto-fit, minmax(110px, 110px));
 		grid-gap: 24px;
 		justify-content: center;
-		animation: ${appearFromBottom} 1s;
+		animation: ${appearFromBottom} 2s;
 
 		a {
 			overflow: hidden;

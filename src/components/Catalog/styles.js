@@ -1,10 +1,8 @@
 import styled, { css } from 'styled-components'
 
 export const Content = styled.div`
-	border: 1px solid green;
 	width: 100%;
 	display: none;
-	padding-bottom: 100px;
 
 	${(props) =>
 		props.show &&
@@ -14,27 +12,31 @@ export const Content = styled.div`
 
 	@media (min-width: 768px) {
 		display: block;
-		padding-bottom: 0;
 	}
 
 	ul {
 		display: grid;
-		grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+		grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
 		grid-gap: 16px;
+
+		@media (min-width: 768px) {
+			grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+		}
 	}
 
 	li {
 		list-style: none;
-		border: 1px solid #ccc;
-		display: flex;
-		flex-direction: column;
+		display: grid;
+		box-shadow: 0px 0px 4px 1px #eee;
+		grid-template-columns: 1fr;
 		justify-content: center;
+		align-items: flex-end;
 		background: #fff;
 		border-radius: 8px;
 		transition: all 0.3s;
 
 		&:hover {
-			box-shadow: 0px 0px 5px 1px ${(props) => props.theme.colors.secundary};
+			box-shadow: 0px 0px 4px 1px #ccc;
 
 			img {
 				transform: scale(1.2);
@@ -43,7 +45,7 @@ export const Content = styled.div`
 
 		img {
 			max-width: 100%;
-			margin: 16px auto 16px auto;
+			margin: 6px auto 0 auto;
 			transition: all 0.3s;
 		}
 
@@ -57,24 +59,25 @@ export const Content = styled.div`
 		.price {
 			margin: 8px 16px;
 			font-size: 0.8rem;
-			background: ${(props) => props.theme.colors.secundary};
-			color: #fff;
+			background: #efefef;
+			color: #30313c;
 			padding: 4px 8px;
 			border-radius: 8px;
 			width: fit-content;
+			font-weight: 500;
 		}
 
 		button {
 			font-weight: 500;
-			background: #f1f1f5;
+			background: ${(props) => props.theme.colors.secundary};
 			border: 0;
 			border-radius: 0px 0px 8px 8px;
 			padding: 8px 16px;
-			color: #30313c;
+			color: #fff;
 			transition: all 0.3s;
 
 			&:hover {
-				background: #e1e1e5;
+				background: ${(props) => props.theme.colors.primary};
 			}
 		}
 	}

@@ -2,8 +2,8 @@ export default {
 	title: 'fire',
 
 	colors: {
-		primary: '#B92025',
-		secundary: '#F04951',
+		primary: '#de3f46',
+		secundary: '#b93339',
 	},
 
 	iconsPosition: {

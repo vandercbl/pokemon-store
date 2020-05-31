@@ -12,7 +12,7 @@ import { startModal, endModal } from '../../store/reducers/modal'
 import Modal from '../../components/Modal'
 
 import { formatValueNotCurrency, formatValue } from '../../utils/formatValue'
-import { CartSummary, CartDetails, CartConclude } from './styles'
+import { CartSummary, CartTitle, CartDetails, CartConclude } from './styles'
 
 function Cart() {
 	const type = useSelector((state) => state.theme.themeObject.title)
@@ -55,7 +55,9 @@ function Cart() {
 	return (
 		<>
 			<CartSummary show={cartShow}>
-				<h2>Carrinho</h2>
+				<CartTitle>
+					<h2>Carrinho</h2>
+				</CartTitle>
 				<CartDetails>
 					<ul>
 						{cart.map((item, index) => (

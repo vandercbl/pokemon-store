@@ -97,8 +97,29 @@ export const Content = styled.div`
 				background: url(${iconsTypes}) no-repeat;
 				background-size: 200px;
 
+				&.icon-dragon {
+					background-position: -66px -48px;
+				}
+				&.icon-electric {
+					background-position: -33px -48px;
+				}
 				&.icon-fire {
 					background-position: -33px -2px;
+				}
+				&.icon-flying {
+					background-position: -66px -48px;
+				}
+				&.icon-grass {
+					background-position: -66px -2px;
+				}
+				&.icon-ground {
+					background-position: -99px -2px;
+				}
+				&.icon-ice {
+					background-position: 0px -48px;
+				}
+				&.icon-steel {
+					background-position: -170px -2px;
 				}
 				&.icon-water {
 					background-position: 0px -2px;
@@ -111,6 +132,8 @@ export const Content = styled.div`
 					left: 0;
 					text-align: center;
 					width: 100%;
+					font-weight: 500;
+					color: #333;
 				}
 			}
 		}

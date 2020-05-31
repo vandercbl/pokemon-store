@@ -49,14 +49,49 @@ function Footer() {
 								</div>
 
 								<div className="stores">
-									<Link to="/store/water">
-										<i className="icon icon-water">
-											<span>Water</span>
+									<Link to="/store/dragon">
+										<i className="icon icon-dragon">
+											<span>Dragon</span>
+										</i>
+									</Link>
+									<Link to="/store/electric">
+										<i className="icon icon-electric">
+											<span>Electric</span>
 										</i>
 									</Link>
 									<Link to="/store/fire">
 										<i className="icon icon-fire">
 											<span>Fire</span>
+										</i>
+									</Link>
+									<Link to="/store/flying">
+										<i className="icon icon-flying">
+											<span>Flying</span>
+										</i>
+									</Link>
+									<Link to="/store/grass">
+										<i className="icon icon-grass">
+											<span>Grass</span>
+										</i>
+									</Link>
+									<Link to="/store/ground">
+										<i className="icon icon-ground">
+											<span>Ground</span>
+										</i>
+									</Link>
+									<Link to="/store/ice">
+										<i className="icon icon-ice">
+											<span>Ice</span>
+										</i>
+									</Link>
+									<Link to="/store/steel">
+										<i className="icon icon-steel">
+											<span>Steel</span>
+										</i>
+									</Link>
+									<Link to="/store/water">
+										<i className="icon icon-water">
+											<span>Water</span>
 										</i>
 									</Link>
 								</div>

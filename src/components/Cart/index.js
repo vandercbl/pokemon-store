@@ -49,7 +49,7 @@ function Cart() {
 		setTimeout(() => {
 			dispatch(finishBuy(type))
 			dispatch(endModal())
-		}, 3000)
+		}, 5000)
 	}, [dispatch, type])
 
 	return (
@@ -101,7 +101,7 @@ function Cart() {
 				<p>
 					<strong>{formatValue(0.1 * totalCart)}</strong>
 				</p>
-				<span>Você será redirecionado em 3 segundos...</span>
+				<span>Você será redirecionado em 5 segundos...</span>
 			</Modal>
 		</>
 	)

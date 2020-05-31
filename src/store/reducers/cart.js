@@ -1,18 +1,18 @@
 import { createAction, createReducer } from '@reduxjs/toolkit'
 
-// const initialCartItems = {
-// 	name: '',
-// 	urlImage: '',
-// 	quantity: '',
-// 	price: '',
-// }
-
 const INITIAL_STATE = {
 	cartItems: [],
 	type: '',
 	typeStore: {
-		water: [],
+		dragon: [],
+		electric: [],
 		fire: [],
+		flying: [],
+		grass: [],
+		ground: [],
+		ice: [],
+		steel: [],
+		water: [],
 	},
 }
 
@@ -36,8 +36,6 @@ export default createReducer(INITIAL_STATE, {
 			state.typeStore[type][exists].quantity =
 				state.typeStore[type][exists].quantity + 1
 		}
-
-		// state.typeStore = [{ [type]: { itemCart: action.payload } }]
 	},
 	[addQuantity]: (state, action) => {
 		const type = action.payload.type

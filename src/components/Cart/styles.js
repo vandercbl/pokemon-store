@@ -25,11 +25,11 @@ export const CartSummary = styled.div`
 `
 
 export const CartTitle = styled.div`
-	padding: 16px;
+	padding: 16px 16px 0px 16px;
 `
 
 export const CartDetails = styled.div`
-	padding: 16px 0;
+	padding: 16px 8px;
 
 	@media (min-width: 768px) {
 		padding: 16px;

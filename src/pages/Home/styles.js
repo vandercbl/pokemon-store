@@ -13,11 +13,12 @@ const appearFromBottom = keyframes`
 `
 
 export const ContainerHome = styled.div`
-	background-image: radial-gradient(circle, #fff, #fff, #ddd);
+	/* background-image: radial-gradient(circle, #fff, #fff, #ddd); */
 	height: 100vh;
 	display: flex;
-	align-items: center;
+	/* align-items: center; */
 	text-align: center;
+	padding-top: 8vh;
 
 	@media (min-width: 768px) {
 	}
@@ -43,6 +44,7 @@ export const ContainerHome = styled.div`
 		grid-gap: 24px;
 		justify-content: center;
 		animation: ${appearFromBottom} 2s;
+		margin-bottom: 16px;
 
 		a {
 			overflow: hidden;
@@ -66,12 +68,75 @@ export const ContainerHome = styled.div`
 				}
 			}
 
+			&.dragon {
+				&:hover {
+					box-shadow: 0px 0px 16px 1px #1a76b9;
+				}
+				.bg-store {
+					background-position-x: -892px;
+				}
+			}
+
+			&.electric {
+				&:hover {
+					box-shadow: 0px 0px 16px 1px #ffd95a;
+				}
+				.bg-store {
+					background-position-x: 0;
+				}
+			}
+
 			&.fire {
 				&:hover {
 					box-shadow: 0px 0px 16px 1px #ffa321;
 				}
 				.bg-store {
 					background-position-x: -668px;
+				}
+			}
+
+			&.flying {
+				&:hover {
+					box-shadow: 0px 0px 16px 1px #7b99df;
+				}
+				.bg-store {
+					background-position-x: -222px;
+				}
+			}
+
+			&.grass {
+				&:hover {
+					box-shadow: 0px 0px 16px 1px #42bb5c;
+				}
+				.bg-store {
+					background-position-x: -557px;
+				}
+			}
+
+			&.ground {
+				&:hover {
+					box-shadow: 0px 0px 16px 1px #ce8246;
+				}
+				.bg-store {
+					background-position-x: -335px;
+				}
+			}
+
+			&.ice {
+				&:hover {
+					box-shadow: 0px 0px 16px 1px #7ddfde;
+				}
+				.bg-store {
+					background-position-x: -112px;
+				}
+			}
+
+			&.steel {
+				&:hover {
+					box-shadow: 0px 0px 16px 1px #2d949d;
+				}
+				.bg-store {
+					background-position-x: -1002px;
 				}
 			}
 

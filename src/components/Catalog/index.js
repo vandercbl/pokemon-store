@@ -38,12 +38,17 @@ function Catalog() {
 			<ul>
 				{pokemon
 					.filter((p) => p.pokemon.name.toLowerCase().includes(filterPokemon))
-					.map((p, index) => (
-						<li key={index}>
+					.map((p) => (
+						<li key={p.pokemon.url} className="item-pokemon">
 							<img src={p.pokemon.urlImage} alt={p.pokemon.name} />
 							<p className="name">{p.pokemon.name}</p>
 							<p className="price">{formatValue(Number(p.pokemon.price))}</p>
-							<button onClick={() => handleAddCart(p.pokemon)}>Comprar</button>
+							<button
+								className="add-cart"
+								onClick={() => handleAddCart(p.pokemon)}
+							>
+								Comprar
+							</button>
 						</li>
 					))}
 			</ul>

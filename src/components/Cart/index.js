@@ -61,9 +61,9 @@ function Cart() {
 					<h2>Carrinho</h2>
 				</CartTitle>
 				<CartDetails>
-					<ul>
-						{cart.map((item, index) => (
-							<li key={index}>
+					<ul className="list-cart">
+						{cart.map((item) => (
+							<li key={item.name}>
 								<div className="name-item">
 									<img src={item.urlImage} alt={item.name} />
 									<span>{item.name}</span>
@@ -98,7 +98,7 @@ function Cart() {
 			</CartSummary>
 			<Modal>
 				<AiOutlineCheckCircle />
-				<h1>Obrigado!!!</h1>
+				<h1 className="finish-buy">Obrigado!!!</h1>
 				<p>Você ganhou de volta</p>
 				<p>
 					<strong>{formatValue(0.1 * totalCart)}</strong>

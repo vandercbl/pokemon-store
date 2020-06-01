@@ -26,6 +26,10 @@ export default createGlobalStyle`
 		/* height: 100vh; */
 	}
 
+	#root{
+		height: 100vh;
+	}
+
 	footer {
 		margin-top: auto;
 	}

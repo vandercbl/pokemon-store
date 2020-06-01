@@ -54,7 +54,7 @@ function Footer() {
 			<Content className="container">
 				<div className="nav-tools">
 					<div className="nav-mobile">
-						<Link to="/" className="btn-icon">
+						<Link to="/" className="btn-icon" id="btn-home">
 							<AiOutlineHome />
 							<span>Home</span>
 						</Link>

@@ -53,6 +53,7 @@ export const Content = styled.div`
 
 		img {
 			max-width: 100%;
+			min-height: 60px;
 			margin: 6px auto 0 auto;
 			transition: all 0.3s;
 		}

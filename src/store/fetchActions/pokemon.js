@@ -4,7 +4,7 @@ import { startLoad, endLoad } from '../reducers/loading'
 
 export const getDetailsPokemonFetch = (name) => async (dispatch) => {
 	dispatch(startLoad())
-	// recebend o nome verificar se esse nome está dentro do jsno que tem os tipos baseados nos temas
+	// recebendo nome verificar se esse nome está dentro do jsno que tem os tipos baseados nos temas
 	await api
 		.get(`pokemon/${name}`)
 		.then((response) => {
@@ -76,13 +76,21 @@ export const getAllPokemonFetch = (type) => async (dispatch) => {
 
 			// add nova URL com info de imagem do pokemon, pois o json cerca de 250kb mais leve na nova URL para cada pokemon
 			const pokeList = res.map((p) => {
+				const id = p.pokemon.url
+					.substring(0, p.pokemon.url.length - 1)
+					.split('/')
+					.pop()
+
+				console.log(id)
 				const newUrl = p.pokemon.url.replace('pokemon', 'pokemon-form')
 				p = {
 					pokemon: {
+						id: id,
 						name: p.pokemon.name,
 						price: p.pokemon.name.length * 3,
 						url: p.pokemon.url,
 						newUrl: newUrl,
+						urlImage: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`,
 						type: type,
 					},
 				}
@@ -94,26 +102,29 @@ export const getAllPokemonFetch = (type) => async (dispatch) => {
 			console.log(err)
 		})
 
-	const newObjectPoke = objectPoke.map(async (p, index) => {
-		const urlImage = await api.get(p.pokemon.newUrl).then((response) => {
-			return response.data.sprites.front_default
-		})
-		p = {
-			pokemon: {
-				name: p.pokemon.name,
-				price: p.pokemon.price,
-				url: p.pokemon.url,
-				newUrl: p.pokemon.newUrl,
-				urlImage: urlImage,
-				type: type,
-			},
-		}
-		return p
-	})
+	dispatch(listPokemon(objectPoke))
 
-	await Promise.all(newObjectPoke).then((values) => {
-		dispatch(listPokemon(values))
-	})
+	// const newObjectPoke = objectPoke.map(async (p, index) => {
+	// 	const urlImage = await api.get(p.pokemon.newUrl).then((response) => {
+	// 		return response.data.sprites.front_default
+	// 	})
+	// 	p = {
+	// 		pokemon: {
+	// 			id: p.pokemon.id,
+	// 			name: p.pokemon.name,
+	// 			price: p.pokemon.price,
+	// 			url: p.pokemon.url,
+	// 			newUrl: p.pokemon.newUrl,
+	// 			urlImage: urlImage,
+	// 			type: type,
+	// 		},
+	// 	}
+	// 	return p
+	// })
+
+	// await Promise.all(newObjectPoke).then((values) => {
+	// 	dispatch(listPokemon(values))
+	// })
 
 	dispatch(endLoad())
 }

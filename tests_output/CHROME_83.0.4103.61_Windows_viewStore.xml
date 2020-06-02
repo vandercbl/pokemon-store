@@ -5,9 +5,9 @@
 
   <testsuite name="viewStore"
     errors="0" failures="0" hostname="" id="" package="viewStore" skipped="0"
-    tests="9" time="84.41" timestamp="">
+    tests="9" time="85.14" timestamp="">
   
-    <testcase name="View store dragon" classname="viewStore" time="6.629" assertions="4">
+    <testcase name="View store dragon" classname="viewStore" time="7.337" assertions="4">
 
     
 
@@ -18,7 +18,7 @@
     
     </testcase>
   
-    <testcase name="View store electric" classname="viewStore" time="9.846" assertions="4">
+    <testcase name="View store electric" classname="viewStore" time="9.543" assertions="4">
 
     
 
@@ -29,7 +29,7 @@
     
     </testcase>
   
-    <testcase name="View store fire" classname="viewStore" time="9.870" assertions="4">
+    <testcase name="View store fire" classname="viewStore" time="9.341" assertions="4">
 
     
 
@@ -40,7 +40,7 @@
     
     </testcase>
   
-    <testcase name="View store flying" classname="viewStore" time="9.873" assertions="4">
+    <testcase name="View store flying" classname="viewStore" time="9.347" assertions="4">
 
     
 
@@ -51,7 +51,7 @@
     
     </testcase>
   
-    <testcase name="View store grass" classname="viewStore" time="9.279" assertions="4">
+    <testcase name="View store grass" classname="viewStore" time="10.64" assertions="4">
 
     
 
@@ -62,7 +62,7 @@
     
     </testcase>
   
-    <testcase name="View store ground" classname="viewStore" time="9.870" assertions="4">
+    <testcase name="View store ground" classname="viewStore" time="9.327" assertions="4">
 
     
 
@@ -73,7 +73,7 @@
     
     </testcase>
   
-    <testcase name="View store ice" classname="viewStore" time="9.875" assertions="4">
+    <testcase name="View store ice" classname="viewStore" time="9.236" assertions="4">
 
     
 
@@ -84,7 +84,7 @@
     
     </testcase>
   
-    <testcase name="View store steel" classname="viewStore" time="9.863" assertions="4">
+    <testcase name="View store steel" classname="viewStore" time="10.17" assertions="4">
 
     
 
@@ -95,7 +95,7 @@
     
     </testcase>
   
-    <testcase name="View store water" classname="viewStore" time="9.301" assertions="4">
+    <testcase name="View store water" classname="viewStore" time="10.20" assertions="4">
 
     
 

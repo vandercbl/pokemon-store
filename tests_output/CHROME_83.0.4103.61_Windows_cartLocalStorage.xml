@@ -5,9 +5,9 @@
 
   <testsuite name="cartLocalStorage"
     errors="0" failures="0" hostname="" id="" package="cartLocalStorage" skipped="0"
-    tests="1" time="3.241" timestamp="">
+    tests="1" time="4.963" timestamp="">
   
-    <testcase name="Cart LocalStorage" classname="cartLocalStorage" time="3.241" assertions="7">
+    <testcase name="Cart LocalStorage" classname="cartLocalStorage" time="4.963" assertions="7">
 
     
 

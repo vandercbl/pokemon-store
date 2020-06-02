@@ -27,7 +27,11 @@ export default createGlobalStyle`
 	}
 
 	#root{
-		height: 100vh;
+		height: auto;
+
+		@media (min-width: 768px){
+			height: 100vh;
+		}
 	}
 
 	footer {

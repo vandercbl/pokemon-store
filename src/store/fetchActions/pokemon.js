@@ -69,7 +69,6 @@ export const getDetailsPokemonFetch = (name, typeStore) => async (dispatch) => {
 			dispatch(newInfoDetails(newObject))
 		})
 		.catch((err) => {
-			// mensagem de não encontrado
 			console.log(err)
 		})
 	dispatch(endLoad())
@@ -90,7 +89,6 @@ export const getAllPokemonFetch = (type) => async (dispatch) => {
 					.split('/')
 					.pop()
 
-				console.log(id)
 				const newUrl = p.pokemon.url.replace('pokemon', 'pokemon-form')
 				p = {
 					pokemon: {
@@ -112,28 +110,6 @@ export const getAllPokemonFetch = (type) => async (dispatch) => {
 		})
 
 	dispatch(listPokemon(objectPoke))
-
-	// const newObjectPoke = objectPoke.map(async (p, index) => {
-	// 	const urlImage = await api.get(p.pokemon.newUrl).then((response) => {
-	// 		return response.data.sprites.front_default
-	// 	})
-	// 	p = {
-	// 		pokemon: {
-	// 			id: p.pokemon.id,
-	// 			name: p.pokemon.name,
-	// 			price: p.pokemon.price,
-	// 			url: p.pokemon.url,
-	// 			newUrl: p.pokemon.newUrl,
-	// 			urlImage: urlImage,
-	// 			type: type,
-	// 		},
-	// 	}
-	// 	return p
-	// })
-
-	// await Promise.all(newObjectPoke).then((values) => {
-	// 	dispatch(listPokemon(values))
-	// })
 
 	dispatch(endLoad())
 }

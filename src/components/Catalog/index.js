@@ -40,7 +40,7 @@ function Catalog() {
 				{pokemon
 					.filter((p) => p.pokemon.name.toLowerCase().includes(filterPokemon))
 					.map((p) => (
-						<li key={p.pokemon.url} className="item-pokemon">
+						<li key={p.pokemon.id} className="item-pokemon">
 							<Link
 								to={`/store/${p.pokemon.type}/${p.pokemon.name}`}
 								className="link-details"

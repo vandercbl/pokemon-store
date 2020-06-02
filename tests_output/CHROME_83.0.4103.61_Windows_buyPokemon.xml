@@ -5,9 +5,9 @@
 
   <testsuite name="buyPokemon"
     errors="0" failures="0" hostname="" id="" package="buyPokemon" skipped="0"
-    tests="1" time="8.688" timestamp="">
+    tests="1" time="8.987" timestamp="">
   
-    <testcase name="Buy store dragon" classname="buyPokemon" time="8.688" assertions="7">
+    <testcase name="Buy store dragon" classname="buyPokemon" time="8.987" assertions="7">
 
     
 

@@ -22,6 +22,10 @@ export const HeaderBar = styled.header`
 		}
 	}
 
+	.link-home-store {
+		text-decoration: none;
+	}
+
 	.type-store {
 		display: flex;
 		align-items: center;

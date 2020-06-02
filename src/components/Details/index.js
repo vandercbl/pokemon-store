@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { addItemCart } from '../../store/reducers/cart'
@@ -19,8 +19,6 @@ function Details(props) {
 
 	const dispatch = useDispatch()
 	const history = useHistory()
-
-	useEffect(() => {}, [])
 
 	const handleBack = useCallback(() => {
 		history.go(-1)

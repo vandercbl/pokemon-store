@@ -2,26 +2,35 @@ import api from '../../services/api'
 import { listPokemon, newInfoDetails } from '../reducers/pokemon'
 import { startLoad, endLoad } from '../reducers/loading'
 
-export const getDetailsPokemonFetch = (name) => async (dispatch) => {
+export const getDetailsPokemonFetch = (name, typeStore) => async (dispatch) => {
 	dispatch(startLoad())
-	// recebendo nome verificar se esse nome está dentro do jsno que tem os tipos baseados nos temas
+
 	await api
 		.get(`pokemon/${name}`)
 		.then((response) => {
 			const res = response.data
 
-			const moves = res.moves.map((item) => {
-				item = {
-					move: {
-						name: item.move.name,
-					},
-				}
-				return item
-			})
 			const types = res.types.map((item) => {
 				item = {
 					type: {
 						name: item.type.name,
+					},
+				}
+				return item
+			})
+
+			// Não permite acessar detalhes de um pokemon que não pertença a loja
+			const validPokemonStore = types.findIndex((item) => {
+				return item.type.name === typeStore
+			})
+			if (validPokemonStore < 0) {
+				return
+			}
+
+			const moves = res.moves.map((item) => {
+				item = {
+					move: {
+						name: item.move.name,
 					},
 				}
 				return item

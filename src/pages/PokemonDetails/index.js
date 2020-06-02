@@ -41,7 +41,7 @@ function PokemonDetails(props) {
 		dispatch(identifyTheme(theme))
 		dispatch(clearPokemonFilter())
 		dispatch(activeDetail())
-		dispatch(getDetailsPokemonFetch(namePokemon))
+		dispatch(getDetailsPokemonFetch(namePokemon, theme))
 	}, [dispatch, namePokemon, theme])
 
 	return (

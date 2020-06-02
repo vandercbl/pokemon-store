@@ -139,15 +139,16 @@ export const CartConclude = styled.div`
 
 	.buy {
 		width: 100%;
-		background: ${(props) => props.theme.colors.secundary};
+		background: ${(props) => props.theme.colors.primary};
 		color: #fff;
 		border: 0;
 		padding: 8px 16px;
 		font-weight: 500;
 		font-size: 1.4rem;
+		transition: all 0.3s;
 
 		&:hover {
-			background: ${(props) => props.theme.colors.primary};
+			background: ${(props) => props.theme.colors.secundary};
 		}
 	}
 `

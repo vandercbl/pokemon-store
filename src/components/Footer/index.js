@@ -1,5 +1,5 @@
-import React, { useCallback, useMemo } from 'react'
-import { Link } from 'react-router-dom'
+import React, { useCallback, useMemo, useEffect } from 'react'
+import { NavLink, Link, useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
 import {
@@ -22,7 +22,9 @@ function Footer() {
 	const ourStoresShow = useSelector((state) => state.screen.ourStores)
 	const type = useSelector((state) => state.theme.themeObject.title)
 	const cart = useSelector((state) => state.cart.typeStore[type])
+	const screen = useSelector((state) => state.screen)
 	const dispatch = useDispatch()
+	const location = useLocation()
 
 	const totalCart = useMemo(() => {
 		let sum = 0
@@ -32,6 +34,15 @@ function Footer() {
 		}
 		return sum
 	}, [cart])
+
+	useEffect(() => {
+		const hash = location.hash
+		if (hash === '#cart') {
+			dispatch(activeCart())
+		} else {
+			dispatch(activeCatalog())
+		}
+	}, [dispatch, location])
 
 	const handleCart = useCallback(() => {
 		dispatch(activeCart())
@@ -58,18 +69,26 @@ function Footer() {
 							<AiOutlineHome />
 							<span>Home</span>
 						</Link>
-						<div className="btn-icon xs-only" onClick={handleCatalog}>
+						<Link
+							to={{ pathname: `/store/${type}`, hash: '#catalog' }}
+							className={`btn-icon xs-only ${screen.catalogShow}`}
+							onClick={handleCatalog}
+						>
 							<AiOutlineShop />
 							<span>Catálogo</span>
-						</div>
-						<div className="btn-icon xs-only" onClick={handleCart}>
+						</Link>
+						<Link
+							to={{ pathname: `/store/${type}`, hash: '#cart' }}
+							className={`btn-icon xs-only ${screen.cartShow}`}
+							onClick={handleCart}
+						>
 							<AiOutlineShoppingCart />
 							<div className="total-cart">{totalCart}</div>
 							<span>Carrinho</span>
-						</div>
+						</Link>
 						<OurStores onClick={handleOurStores} show={ourStoresShow}>
 							<span className="action">
-								<div className="btn-icon">
+								<div className={`btn-icon ${screen.ourStores}`}>
 									<AiOutlineAppstore />
 									<span>Parceiros</span>
 								</div>

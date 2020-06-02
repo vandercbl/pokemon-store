@@ -47,6 +47,10 @@ export const Content = styled.div`
 			}
 		}
 
+		.link-details {
+			text-align: center;
+		}
+
 		img {
 			max-width: 100%;
 			margin: 6px auto 0 auto;
@@ -73,7 +77,7 @@ export const Content = styled.div`
 
 		button {
 			font-weight: 500;
-			background: ${(props) => props.theme.colors.secundary};
+			background: ${(props) => props.theme.colors.primary};
 			border: 0;
 			border-radius: 0px 0px 8px 8px;
 			padding: 8px 16px;
@@ -81,7 +85,7 @@ export const Content = styled.div`
 			transition: all 0.3s;
 
 			&:hover {
-				background: ${(props) => props.theme.colors.primary};
+				background: ${(props) => props.theme.colors.secundary};
 			}
 		}
 	}

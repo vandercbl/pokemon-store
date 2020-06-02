@@ -2,8 +2,8 @@ export default {
 	title: 'dragon',
 
 	colors: {
-		primary: '#1A76B9',
-		secundary: '#166CC1',
+		primary: '#1a6bba',
+		secundary: '#1a26ba',
 	},
 
 	iconsPosition: {

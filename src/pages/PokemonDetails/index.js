@@ -5,21 +5,22 @@ import { useDispatch, useSelector } from 'react-redux'
 // components
 import Header from '../../components/Header'
 import Footer from '../../components/Footer'
-import Catalog from '../../components/Catalog'
 import Cart from '../../components/Cart'
+import Details from '../../components/Details'
 
 // redux
 import { identifyTheme } from '../../store/reducers/theme'
 import { getLocalStorage } from '../../store/reducers/cart'
-// import { activeCatalog } from '../../store/reducers/screen'
+import { activeDetail } from '../../store/reducers/screen'
 import { clearPokemonFilter } from '../../store/reducers/pokemon'
-import { getAllPokemonFetch } from '../../store/fetchActions/pokemon'
+import { getDetailsPokemonFetch } from '../../store/fetchActions/pokemon'
 
 // styles
-import { ContainerStore } from './styles'
+import { Container } from './styles'
 
-function Store(props) {
+function PokemonDetails(props) {
 	const theme = props.match.params.type
+	const namePokemon = props.match.params.pokemon
 	const loading = useSelector((state) => state.loading.show)
 	const cart = useSelector((state) => state.cart.typeStore[theme])
 
@@ -39,24 +40,24 @@ function Store(props) {
 	useEffect(() => {
 		dispatch(identifyTheme(theme))
 		dispatch(clearPokemonFilter())
-		// dispatch(activeCatalog())
-		dispatch(getAllPokemonFetch(theme))
-	}, [dispatch, theme])
+		dispatch(activeDetail())
+		dispatch(getDetailsPokemonFetch(namePokemon))
+	}, [dispatch, namePokemon, theme])
 
 	return (
 		<>
 			<Header />
-			<ContainerStore className="container store">
+			<Container className="container details">
 				{!loading && (
 					<>
-						<Catalog />
+						<Details type={theme}></Details>
 						<Cart />
 					</>
 				)}
-			</ContainerStore>
+			</Container>
 			<Footer />
 		</>
 	)
 }
 
-export default Store
+export default PokemonDetails

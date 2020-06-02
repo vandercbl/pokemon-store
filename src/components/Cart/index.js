@@ -103,7 +103,7 @@ function Cart() {
 				<p>
 					<strong>{formatValue(0.1 * totalCart)}</strong>
 				</p>
-				<span>Você será redirecionado em 5 segundos...</span>
+				<span>Seu carrinho será reiniciado em 5 segundos...</span>
 			</Modal>
 		</>
 	)

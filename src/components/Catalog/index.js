@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react'
+import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { addItemCart } from '../../store/reducers/cart'
 import {
@@ -40,7 +41,13 @@ function Catalog() {
 					.filter((p) => p.pokemon.name.toLowerCase().includes(filterPokemon))
 					.map((p) => (
 						<li key={p.pokemon.url} className="item-pokemon">
-							<img src={p.pokemon.urlImage} alt={p.pokemon.name} />
+							<Link
+								to={`/store/${p.pokemon.type}/${p.pokemon.name}`}
+								className="link-details"
+								title="Mais Detalhes"
+							>
+								<img src={p.pokemon.urlImage} alt={p.pokemon.name} />
+							</Link>
 							<p className="name">{p.pokemon.name}</p>
 							<p className="price">{formatValue(Number(p.pokemon.price))}</p>
 							<button

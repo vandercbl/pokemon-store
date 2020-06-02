@@ -2,8 +2,8 @@ export default {
 	title: 'electric',
 
 	colors: {
-		primary: '#FFCE4B',
-		secundary: '#efc55b',
+		primary: '#fac946',
+		secundary: '#e2d861',
 	},
 
 	iconsPosition: {

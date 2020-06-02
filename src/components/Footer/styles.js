@@ -37,7 +37,7 @@ export const Content = styled.div`
 			justify-content: center;
 			margin: 0 6px;
 			cursor: pointer;
-			color: #fff;
+			color: #30313c;
 			text-decoration: none;
 			position: relative;
 
@@ -56,6 +56,15 @@ export const Content = styled.div`
 				background: rgba(51, 51, 51, 0.5);
 				padding: 2px 6px;
 				border-radius: 100%;
+				color: #ffffffaa;
+			}
+
+			&.true {
+				color: #ffffffbb;
+
+				.total-cart {
+					color: #fff;
+				}
 			}
 
 			&.xs-only {

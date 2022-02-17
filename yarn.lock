@@ -7688,11 +7688,6 @@ nice-try@^1.0.4:
   resolved "https://registry.yarnpkg.com/nice-try/-/nice-try-1.0.5.tgz#a3378a7696ce7d223e88fc9b764bd7ef1089e366"
   integrity sha512-1nh45deeb5olNY7eX82BkPO7SSxR5SSYJiPTrTdFUVYwAl8CKMA5N9PjTYkHiRjisVcxcQ1HXdLhx2qxxJzLNQ==
 
-nightwatch-xhr@^0.4.7:
-  version "0.4.7"
-  resolved "https://registry.yarnpkg.com/nightwatch-xhr/-/nightwatch-xhr-0.4.7.tgz#79cbc9b91c594aeb36a38e8a40903ca42eb0266a"
-  integrity sha512-tExe01qlN+ql0jZfNdufl4ALQBM8EHgVc77SYJoikoxCoXF9fw9Ko1igkj05st5V3feZH/Ps6OKUJS0YSaL3MA==
-
 nightwatch@^1.3.6:
   version "1.3.6"
   resolved "https://registry.yarnpkg.com/nightwatch/-/nightwatch-1.3.6.tgz#881c7884090c7969e0f6b13ac5700929e7145c77"
